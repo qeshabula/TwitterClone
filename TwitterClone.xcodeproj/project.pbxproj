@@ -34,6 +34,11 @@
 		AF41A4872972FD2900E3284E /* AutenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */; };
 		AF41A48A29731A0700E3284E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48929731A0700E3284E /* AuthManager.swift */; };
 		AF41A48C29732E9300E3284E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48B29732E9300E3284E /* LoginViewController.swift */; };
+		AF41A48F2973D0C200E3284E /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48E2973D0C200E3284E /* TwitterUser.swift */; };
+		AF41A4912973D1DC00E3284E /*  DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4902973D1DC00E3284E /*  DatabaseManager.swift */; };
+		AF41A493297401B800E3284E /*  HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A492297401B800E3284E /*  HomeViewViewModel.swift */; };
+		AF41A49529740B9500E3284E /* ProfileDataFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A49429740B9500E3284E /* ProfileDataFormViewController.swift */; };
+		AF41A49729740DC700E3284E /* ProfileDataFormViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A49629740DC700E3284E /* ProfileDataFormViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +62,11 @@
 		AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticationViewViewModel.swift; sourceTree = "<group>"; };
 		AF41A48929731A0700E3284E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		AF41A48B29732E9300E3284E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AF41A48E2973D0C200E3284E /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
+		AF41A4902973D1DC00E3284E /*  DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " DatabaseManager.swift"; sourceTree = "<group>"; };
+		AF41A492297401B800E3284E /*  HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HomeViewViewModel.swift"; sourceTree = "<group>"; };
+		AF41A49429740B9500E3284E /* ProfileDataFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewController.swift; sourceTree = "<group>"; };
+		AF41A49629740DC700E3284E /* ProfileDataFormViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +108,7 @@
 		AF200AE9296F1E9000A62BD7 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
+				AF41A48D2973D08000E3284E /* Models */,
 				AF41A488297319E700E3284E /* Networking */,
 				AF41A4852972FD0400E3284E /* ViewModels */,
 				AF41A463297052E100E3284E /* Views */,
@@ -147,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				AF41A4672971498D00E3284E /* ProfileViewController.swift */,
+				AF41A49429740B9500E3284E /* ProfileDataFormViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -165,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */,
+				AF41A492297401B800E3284E /*  HomeViewViewModel.swift */,
+				AF41A49629740DC700E3284E /* ProfileDataFormViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -173,8 +187,17 @@
 			isa = PBXGroup;
 			children = (
 				AF41A48929731A0700E3284E /* AuthManager.swift */,
+				AF41A4902973D1DC00E3284E /*  DatabaseManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		AF41A48D2973D08000E3284E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF41A48E2973D0C200E3284E /* TwitterUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,18 +287,23 @@
 			files = (
 				AF41A45E2970218700E3284E /* SearchViewController.swift in Sources */,
 				AF41A48A29731A0700E3284E /* AuthManager.swift in Sources */,
+				AF41A4912973D1DC00E3284E /*  DatabaseManager.swift in Sources */,
 				AF200AEF296F1E9000A62BD7 /* MainTabbarViewController.swift in Sources */,
 				AF41A48C29732E9300E3284E /* LoginViewController.swift in Sources */,
 				AF200AEB296F1E9000A62BD7 /* AppDelegate.swift in Sources */,
 				AF41A4842972E68E00E3284E /* RegisterViewController.swift in Sources */,
+				AF41A493297401B800E3284E /*  HomeViewViewModel.swift in Sources */,
 				AF41A460297021A100E3284E /* NotificationsViewController.swift in Sources */,
 				AF200AED296F1E9000A62BD7 /* SceneDelegate.swift in Sources */,
 				AF41A45C2970217300E3284E /* HomeViewController.swift in Sources */,
+				AF41A49729740DC700E3284E /* ProfileDataFormViewViewModel.swift in Sources */,
 				AF41A4872972FD2900E3284E /* AutenticationViewViewModel.swift in Sources */,
 				AF41A4682971498D00E3284E /* ProfileViewController.swift in Sources */,
 				AF41A462297021B700E3284E /* DirectMessagesViewController.swift in Sources */,
+				AF41A49529740B9500E3284E /* ProfileDataFormViewController.swift in Sources */,
 				AF41A46A2971771900E3284E /* ProfileTableViewHeader.swift in Sources */,
 				AF41A4822972DE5000E3284E /* OnboardingViewController.swift in Sources */,
+				AF41A48F2973D0C200E3284E /* TwitterUser.swift in Sources */,
 				AF41A4652970530E00E3284E /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
