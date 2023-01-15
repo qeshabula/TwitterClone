@@ -31,8 +31,9 @@
 		AF41A47F2972DC0400E3284E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AF41A47E2972DC0400E3284E /* FirebaseStorageCombine-Community */; };
 		AF41A4822972DE5000E3284E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4812972DE5000E3284E /* OnboardingViewController.swift */; };
 		AF41A4842972E68E00E3284E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4832972E68E00E3284E /* RegisterViewController.swift */; };
-		AF41A4872972FD2900E3284E /* RegisterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4862972FD2900E3284E /* RegisterViewViewModel.swift */; };
+		AF41A4872972FD2900E3284E /* AutenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */; };
 		AF41A48A29731A0700E3284E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48929731A0700E3284E /* AuthManager.swift */; };
+		AF41A48C29732E9300E3284E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48B29732E9300E3284E /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +54,9 @@
 		AF41A46B2972C33A00E3284E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF41A4812972DE5000E3284E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AF41A4832972E68E00E3284E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		AF41A4862972FD2900E3284E /* RegisterViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewViewModel.swift; sourceTree = "<group>"; };
+		AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticationViewViewModel.swift; sourceTree = "<group>"; };
 		AF41A48929731A0700E3284E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		AF41A48B29732E9300E3284E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			children = (
 				AF41A4812972DE5000E3284E /* OnboardingViewController.swift */,
 				AF41A4832972E68E00E3284E /* RegisterViewController.swift */,
+				AF41A48B29732E9300E3284E /* LoginViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -161,7 +164,7 @@
 		AF41A4852972FD0400E3284E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AF41A4862972FD2900E3284E /* RegisterViewViewModel.swift */,
+				AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -262,12 +265,13 @@
 				AF41A45E2970218700E3284E /* SearchViewController.swift in Sources */,
 				AF41A48A29731A0700E3284E /* AuthManager.swift in Sources */,
 				AF200AEF296F1E9000A62BD7 /* MainTabbarViewController.swift in Sources */,
+				AF41A48C29732E9300E3284E /* LoginViewController.swift in Sources */,
 				AF200AEB296F1E9000A62BD7 /* AppDelegate.swift in Sources */,
 				AF41A4842972E68E00E3284E /* RegisterViewController.swift in Sources */,
 				AF41A460297021A100E3284E /* NotificationsViewController.swift in Sources */,
 				AF200AED296F1E9000A62BD7 /* SceneDelegate.swift in Sources */,
 				AF41A45C2970217300E3284E /* HomeViewController.swift in Sources */,
-				AF41A4872972FD2900E3284E /* RegisterViewViewModel.swift in Sources */,
+				AF41A4872972FD2900E3284E /* AutenticationViewViewModel.swift in Sources */,
 				AF41A4682971498D00E3284E /* ProfileViewController.swift in Sources */,
 				AF41A462297021B700E3284E /* DirectMessagesViewController.swift in Sources */,
 				AF41A46A2971771900E3284E /* ProfileTableViewHeader.swift in Sources */,
