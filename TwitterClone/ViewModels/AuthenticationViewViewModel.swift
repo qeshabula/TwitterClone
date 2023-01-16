@@ -9,9 +9,7 @@ import Foundation
 import Firebase
 import Combine
 
-final class AutenticationViewViewModel: ObservableObject {
-    
-    
+final class AuthenticationViewViewModel: ObservableObject {
     
     @Published var email: String?
     @Published var password: String?

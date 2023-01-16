@@ -31,7 +31,7 @@
 		AF41A47F2972DC0400E3284E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AF41A47E2972DC0400E3284E /* FirebaseStorageCombine-Community */; };
 		AF41A4822972DE5000E3284E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4812972DE5000E3284E /* OnboardingViewController.swift */; };
 		AF41A4842972E68E00E3284E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4832972E68E00E3284E /* RegisterViewController.swift */; };
-		AF41A4872972FD2900E3284E /* AutenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */; };
+		AF41A4872972FD2900E3284E /* AuthenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A4862972FD2900E3284E /* AuthenticationViewViewModel.swift */; };
 		AF41A48A29731A0700E3284E /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48929731A0700E3284E /* AuthManager.swift */; };
 		AF41A48C29732E9300E3284E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48B29732E9300E3284E /* LoginViewController.swift */; };
 		AF41A48F2973D0C200E3284E /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A48E2973D0C200E3284E /* TwitterUser.swift */; };
@@ -59,7 +59,7 @@
 		AF41A46B2972C33A00E3284E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF41A4812972DE5000E3284E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AF41A4832972E68E00E3284E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticationViewViewModel.swift; sourceTree = "<group>"; };
+		AF41A4862972FD2900E3284E /* AuthenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewViewModel.swift; sourceTree = "<group>"; };
 		AF41A48929731A0700E3284E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		AF41A48B29732E9300E3284E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF41A48E2973D0C200E3284E /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		AF41A4852972FD0400E3284E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AF41A4862972FD2900E3284E /* AutenticationViewViewModel.swift */,
+				AF41A4862972FD2900E3284E /* AuthenticationViewViewModel.swift */,
 				AF41A492297401B800E3284E /*  HomeViewViewModel.swift */,
 				AF41A49629740DC700E3284E /* ProfileDataFormViewViewModel.swift */,
 			);
@@ -297,7 +297,7 @@
 				AF200AED296F1E9000A62BD7 /* SceneDelegate.swift in Sources */,
 				AF41A45C2970217300E3284E /* HomeViewController.swift in Sources */,
 				AF41A49729740DC700E3284E /* ProfileDataFormViewViewModel.swift in Sources */,
-				AF41A4872972FD2900E3284E /* AutenticationViewViewModel.swift in Sources */,
+				AF41A4872972FD2900E3284E /* AuthenticationViewViewModel.swift in Sources */,
 				AF41A4682971498D00E3284E /* ProfileViewController.swift in Sources */,
 				AF41A462297021B700E3284E /* DirectMessagesViewController.swift in Sources */,
 				AF41A49529740B9500E3284E /* ProfileDataFormViewController.swift in Sources */,

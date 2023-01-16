@@ -35,7 +35,8 @@ class HomeViewController: UIViewController {
     
     private let timelineTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
+        tableView.register(TweetTableViewCell.self,
+                           forCellReuseIdentifier: TweetTableViewCell.identifier)
         return tableView
     }()
 
@@ -46,7 +47,6 @@ class HomeViewController: UIViewController {
         timelineTableView.dataSource = self
         configureNavigationBar()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(didTapSignOut))
-        
         bindViews()
     }
     
@@ -74,7 +74,7 @@ class HomeViewController: UIViewController {
         handleAuthentication()
         viewModel.retreiveUser()
     }
-    
+
     func completeUserOnboarding() {
         let vc = ProfileDataFormViewController()
         present(vc, animated: true)
@@ -83,7 +83,8 @@ class HomeViewController: UIViewController {
     func bindViews() {
         viewModel.$user.sink { [weak self] user in
             guard let user = user else { return }
-            if !user.isUserOnboarded {
+            print(user)
+            if user.isUserOnboarded {
                 self?.completeUserOnboarding()
             }
         }
@@ -96,6 +97,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as? TweetTableViewCell else {
             return UITableViewCell()
@@ -123,6 +125,5 @@ extension HomeViewController: TweetTableViewCellDelegate {
     func tweetTableViewCellDidTapShare() {
         print("Share")
     }
-    
-    
+
 }
