@@ -10,6 +10,7 @@ import Combine
 
 class RegisterViewController: UIViewController {
     
+    
     private var viewModel = AuthenticationViewViewModel()
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -20,7 +21,7 @@ class RegisterViewController: UIViewController {
         label.font = .systemFont(ofSize: 32, weight: .bold)
         return label
     }()
-
+    
     private let emailTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +33,7 @@ class RegisterViewController: UIViewController {
         return textField
     }()
     
+    
     private let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +44,7 @@ class RegisterViewController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
+    
     
     private let registerButton: UIButton = {
         let button = UIButton(type: .system)
@@ -56,20 +59,21 @@ class RegisterViewController: UIViewController {
         return button
     }()
     
+    
     @objc private func didChangeEmailField() {
         viewModel.email = emailTextField.text
-        viewModel.validateAutenticationForm()
+        viewModel.validateAuthenticationForm()
     }
     
     @objc private func didChangePasswordField() {
         viewModel.password = passwordTextField.text
-        viewModel.validateAutenticationForm()
+        viewModel.validateAuthenticationForm()
     }
     
     private func bindViews() {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
-        viewModel.$isAutenticationFormValid.sink { [weak self] validationState in
+        viewModel.$isAuthenticationFormValid.sink { [weak self] validationState in
             self?.registerButton.isEnabled = validationState
         }
         .store(in: &subscriptions)
@@ -81,12 +85,14 @@ class RegisterViewController: UIViewController {
         }
         .store(in: &subscriptions)
         
+        
         viewModel.$error.sink { [weak self] errorString in
             guard let error = errorString else { return }
             self?.presentAlert(with: error)
         }
         .store(in: &subscriptions)
     }
+    
     
     private func presentAlert(with error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
@@ -98,8 +104,7 @@ class RegisterViewController: UIViewController {
     @objc private func didTapToDismiss() {
         view.endEditing(true)
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -111,7 +116,7 @@ class RegisterViewController: UIViewController {
         configureConstraints()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
         bindViews()
-        
+
     }
     
     @objc private func didTapRegister() {
@@ -119,10 +124,11 @@ class RegisterViewController: UIViewController {
     }
     
     private func configureConstraints() {
-        let registerTitleLabelConstraints = [
+        let registerTitleLabelCosntraints = [
             registerTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             registerTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
         ]
+        
         
         let emailTextFieldConstraints = [
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -132,6 +138,7 @@ class RegisterViewController: UIViewController {
             emailTextField.heightAnchor.constraint(equalToConstant: 60)
         ]
         
+        
         let passwordTextFieldConstraints = [
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
@@ -140,6 +147,7 @@ class RegisterViewController: UIViewController {
             passwordTextField.heightAnchor.constraint(equalToConstant: 60)
         ]
         
+        
         let registerButtonConstraints = [
             registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
@@ -147,10 +155,10 @@ class RegisterViewController: UIViewController {
             registerButton.heightAnchor.constraint(equalToConstant: 50)
         ]
         
-        NSLayoutConstraint.activate(registerTitleLabelConstraints)
+        
+        NSLayoutConstraint.activate(registerTitleLabelCosntraints)
         NSLayoutConstraint.activate(emailTextFieldConstraints)
         NSLayoutConstraint.activate(passwordTextFieldConstraints)
         NSLayoutConstraint.activate(registerButtonConstraints)
     }
-    
 }

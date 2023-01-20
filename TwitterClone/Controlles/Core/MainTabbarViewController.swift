@@ -11,13 +11,13 @@ class MainTabbarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         
         let vc1 = UINavigationController(rootViewController: HomeViewController())
         let vc2 = UINavigationController(rootViewController: SearchViewController())
         let vc3 = UINavigationController(rootViewController: NotificationsViewController())
         let vc4 = UINavigationController(rootViewController: DirectMessagesViewController())
+        
         
         
         vc1.tabBarItem.image = UIImage(systemName: "house")
@@ -31,9 +31,8 @@ class MainTabbarViewController: UITabBarController {
         vc4.tabBarItem.image = UIImage(systemName: "envelope")
         vc4.tabBarItem.selectedImage = UIImage(systemName: "envelope.fill")
         
+        
         setViewControllers([vc1, vc2, vc3, vc4], animated: true)
+        
     }
-
-
 }
-

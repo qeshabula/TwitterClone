@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Combine
+
 
 class ProfileViewController: UIViewController {
 
     private var isStatusBarHidden: Bool = true
-    
+    private var viewModel = ProfileViewViewModel()
+
     private let statusBar: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBackground
@@ -19,8 +22,13 @@ class ProfileViewController: UIViewController {
         return view
     }()
     
+    private var subscriptions: Set<AnyCancellable> = []
+    
+    
+    private lazy var headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 380))
+    
+    
     private let profileTableView: UITableView = {
-       
         let tableView = UITableView()
         tableView.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,15 +41,31 @@ class ProfileViewController: UIViewController {
         navigationItem.title = "Profile"
         view.addSubview(profileTableView)
         view.addSubview(statusBar)
-        let headerView = ProfileTableViewHeader(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 380))
         
         profileTableView.delegate = self
         profileTableView.dataSource = self
         profileTableView.tableHeaderView = headerView
         profileTableView.contentInsetAdjustmentBehavior = .never
         navigationController?.navigationBar.isHidden = true
-        
         configureConstraints()
+        bindViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.retreiveUser()
+    }
+    
+    private func bindViews() {
+        viewModel.$user.sink { [weak self] user in
+            guard let user = user else { return }
+            self?.headerView.displayNameLabel.text = user.displayName
+            self?.headerView.usernameLabel.text = "@\(user.username)"
+            self?.headerView.followersCountLabel.text = "\(user.followersCount)"
+            self?.headerView.followingCountLabel.text = "\(user.followingCount)"
+            self?.headerView.userBioLabel.text = user.bio
+        }
+        .store(in: &subscriptions)
     }
     
     private func configureConstraints() {

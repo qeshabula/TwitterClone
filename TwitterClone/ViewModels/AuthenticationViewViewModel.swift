@@ -11,22 +11,25 @@ import Combine
 
 final class AuthenticationViewViewModel: ObservableObject {
     
+    
     @Published var email: String?
     @Published var password: String?
-    @Published var isAutenticationFormValid: Bool = false
+    @Published var isAuthenticationFormValid: Bool = false
     @Published var user: User?
     @Published var error: String?
     
-    private var subscriptios: Set<AnyCancellable> = []
     
-    func validateAutenticationForm() {
+    private var subscriptions: Set<AnyCancellable> = []
+    
+    func validateAuthenticationForm() {
         guard let email = email,
               let password = password else {
-            isAutenticationFormValid = false
+            isAuthenticationFormValid = false
             return
         }
-        isAutenticationFormValid = isValidEmail(email) && password.count >= 8
+        isAuthenticationFormValid = isValidEmail(email) && password.count >= 8
     }
+    
     
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -35,10 +38,10 @@ final class AuthenticationViewViewModel: ObservableObject {
         return emailPred.evaluate(with: email)
     }
     
+    
     func createUser() {
         guard let email = email,
               let password = password else { return }
-        
         AuthManager.shared.registerUser(with: email, password: password)
             .handleEvents(receiveOutput: { [weak self] user in
                 self?.user = user
@@ -51,7 +54,7 @@ final class AuthenticationViewViewModel: ObservableObject {
             } receiveValue: { [weak self] user in
                 self?.createRecord(for: user)
             }
-            .store(in: &subscriptios)
+            .store(in: &subscriptions)
     }
     
     func createRecord(for user: User) {
@@ -63,23 +66,23 @@ final class AuthenticationViewViewModel: ObservableObject {
             } receiveValue: { state in
                 print("Adding user record to database: \(state)")
             }
-            .store(in: &subscriptios)
-
+            .store(in: &subscriptions)
+        
     }
     
     func loginUser() {
         guard let email = email,
               let password = password else { return }
-        
         AuthManager.shared.loginUser(with: email, password: password)
             .sink { [weak self] completion in
                 
                 if case .failure(let error) = completion {
                     self?.error = error.localizedDescription
                 }
+                
             } receiveValue: { [weak self] user in
                 self?.user = user
             }
-            .store(in: &subscriptios)
+            .store(in: &subscriptions)
     }
 }

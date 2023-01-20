@@ -11,6 +11,7 @@ import Combine
 
 class HomeViewController: UIViewController {
     
+    
     private var viewModel = HomeViewViewModel()
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -48,6 +49,7 @@ class HomeViewController: UIViewController {
         configureNavigationBar()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(didTapSignOut))
         bindViews()
+
     }
     
     @objc private func didTapSignOut() {
@@ -125,5 +127,4 @@ extension HomeViewController: TweetTableViewCellDelegate {
     func tweetTableViewCellDidTapShare() {
         print("Share")
     }
-
 }

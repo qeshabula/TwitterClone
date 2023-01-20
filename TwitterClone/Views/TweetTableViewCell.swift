@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol TweetTableViewCellDelegate: AnyObject {
     func tweetTableViewCellDidTapReply()
     func tweetTableViewCellDidTapRetweet()
@@ -19,18 +20,19 @@ class TweetTableViewCell: UITableViewCell {
     static let identifier = "TweetTableViewCell"
     
     
+    
     weak var delegate: TweetTableViewCellDelegate?
     
     private let actionSpacing: CGFloat = 60
     private let avatarImageView: UIImageView = {
-        
+       
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "preson")
+        imageView.image = UIImage(systemName: "person")
         imageView.backgroundColor = .red
         return imageView
     }()
@@ -46,7 +48,7 @@ class TweetTableViewCell: UITableViewCell {
     
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.text = "@Bul"
+        label.text = "Bul"
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -56,9 +58,10 @@ class TweetTableViewCell: UITableViewCell {
     private let tweetTextContentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "This is may Mockup tweet. it is going to take multiple lines. I believe some more text is enough but lets add some more anyway.. and cheer youtube.!!!"
+        label.text = "This is my Mockup tweet. it is going to take multiple lines. i believe some more text is enough but lets add some more anyway.. and cheers youtube.!!!"
         label.numberOfLines = 0
         return label
+        
     }()
     
     private let replyButton: UIButton = {
@@ -68,6 +71,7 @@ class TweetTableViewCell: UITableViewCell {
         button.tintColor = .systemGray2
         return button
     }()
+    
     
     private let retweetButton: UIButton = {
         let button = UIButton(type: .system)
@@ -85,6 +89,7 @@ class TweetTableViewCell: UITableViewCell {
         return button
     }()
     
+    
     private let shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -92,8 +97,6 @@ class TweetTableViewCell: UITableViewCell {
         button.tintColor = .systemGray2
         return button
     }()
-    
-  
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -106,7 +109,7 @@ class TweetTableViewCell: UITableViewCell {
         contentView.addSubview(likeButton)
         contentView.addSubview(shareButton)
         configureConstraints()
-        configureBottons()
+        configureButtons()
     }
     
     @objc private func didTapReply() {
@@ -125,13 +128,13 @@ class TweetTableViewCell: UITableViewCell {
         delegate?.tweetTableViewCellDidTapShare()
     }
     
-    private func configureBottons() {
+    
+    private func configureButtons() {
         replyButton.addTarget(self, action: #selector(didTapReply), for: .touchUpInside)
         retweetButton.addTarget(self, action: #selector(didTapRetweet), for: .touchUpInside)
         likeButton.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
     }
-
     
     private func configureConstraints() {
         
@@ -139,8 +142,9 @@ class TweetTableViewCell: UITableViewCell {
             avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14),
             avatarImageView.heightAnchor.constraint(equalToConstant: 50),
-            avatarImageView.widthAnchor.constraint(equalToConstant: 50),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 50)
         ]
+        
         
         let displayNameLabelConstraints = [
             displayNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 20),
@@ -164,10 +168,12 @@ class TweetTableViewCell: UITableViewCell {
             replyButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ]
         
+        
         let retweetButtonConstraints = [
             retweetButton.leadingAnchor.constraint(equalTo: replyButton.trailingAnchor, constant: actionSpacing),
             retweetButton.centerYAnchor.constraint(equalTo: replyButton.centerYAnchor),
         ]
+        
         
         let likeButtonConstraints = [
             likeButton.leadingAnchor.constraint(equalTo: retweetButton.trailingAnchor, constant: actionSpacing),
@@ -175,8 +181,10 @@ class TweetTableViewCell: UITableViewCell {
         ]
         
         let shareButtonConstraints = [
+            
             shareButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: actionSpacing),
             shareButton.centerYAnchor.constraint(equalTo: replyButton.centerYAnchor)
+        
         ]
         
         NSLayoutConstraint.activate(avatarImageViewConstraints)
@@ -192,5 +200,4 @@ class TweetTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
 }

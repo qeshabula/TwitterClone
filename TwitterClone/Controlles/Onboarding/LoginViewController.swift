@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     private var viewModel = AuthenticationViewViewModel()
     private var subscriptions: Set<AnyCancellable> = []
     
-    
     private let loginTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +32,7 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
+    
     private let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
+    
     
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
@@ -59,18 +60,18 @@ class LoginViewController: UIViewController {
     
     @objc private func didChangeEmailField() {
         viewModel.email = emailTextField.text
-        viewModel.validateAutenticationForm()
+        viewModel.validateAuthenticationForm()
     }
     
     @objc private func didChangePasswordField() {
         viewModel.password = passwordTextField.text
-        viewModel.validateAutenticationForm()
+        viewModel.validateAuthenticationForm()
     }
     
     private func bindViews() {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
-        viewModel.$isAutenticationFormValid.sink { [weak self] validationState in
+        viewModel.$isAuthenticationFormValid.sink { [weak self] validationState in
             self?.loginButton.isEnabled = validationState
         }
         .store(in: &subscriptions)
@@ -81,20 +82,23 @@ class LoginViewController: UIViewController {
             vc.dismiss(animated: true)
         }
         .store(in: &subscriptions)
-    
+        
+        
         viewModel.$error.sink { [weak self] errorString in
             guard let error = errorString else { return }
             self?.presentAlert(with: error)
         }
         .store(in: &subscriptions)
     }
-
+    
+    
     private func presentAlert(with error: String) {
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         let okayButton = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okayButton)
         present(alert, animated: true)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,17 +110,19 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
         configureConstraints()
         bindViews()
+
     }
     
     @objc private func didTapLogin() {
-        viewModel.loginUser() 
+        viewModel.loginUser()
     }
     
     private func configureConstraints() {
-        let loginTitleLabelConstraints = [
+        let loginTitleLabelCosntraints = [
             loginTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
         ]
+        
         
         let emailTextFieldConstraints = [
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -126,6 +132,7 @@ class LoginViewController: UIViewController {
             emailTextField.heightAnchor.constraint(equalToConstant: 60)
         ]
         
+        
         let passwordTextFieldConstraints = [
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
@@ -134,6 +141,7 @@ class LoginViewController: UIViewController {
             passwordTextField.heightAnchor.constraint(equalToConstant: 60)
         ]
         
+        
         let loginButtonConstraints = [
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
@@ -141,7 +149,8 @@ class LoginViewController: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: 50)
         ]
         
-        NSLayoutConstraint.activate(loginTitleLabelConstraints)
+        
+        NSLayoutConstraint.activate(loginTitleLabelCosntraints)
         NSLayoutConstraint.activate(emailTextFieldConstraints)
         NSLayoutConstraint.activate(passwordTextFieldConstraints)
         NSLayoutConstraint.activate(loginButtonConstraints)
