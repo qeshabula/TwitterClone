@@ -42,6 +42,10 @@
 		AF41A493297401B800E3284E /*  HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A492297401B800E3284E /*  HomeViewViewModel.swift */; };
 		AF41A49529740B9500E3284E /* ProfileDataFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A49429740B9500E3284E /* ProfileDataFormViewController.swift */; };
 		AF41A49729740DC700E3284E /* ProfileDataFormViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41A49629740DC700E3284E /* ProfileDataFormViewViewModel.swift */; };
+		AFDDC45B297C15AD0088C137 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDDC45A297C15AD0088C137 /* Extension+UIColor.swift */; };
+		AFDDC45D297C1F5A0088C137 /* TweetComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDDC45C297C1F5A0088C137 /* TweetComposeViewController.swift */; };
+		AFDDC45F297C2A030088C137 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDDC45E297C2A030088C137 /* Tweet.swift */; };
+		AFDDC461297C2B310088C137 /* TweetComposeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDDC460297C2B310088C137 /* TweetComposeViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		AF41A492297401B800E3284E /*  HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " HomeViewViewModel.swift"; sourceTree = "<group>"; };
 		AF41A49429740B9500E3284E /* ProfileDataFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewController.swift; sourceTree = "<group>"; };
 		AF41A49629740DC700E3284E /* ProfileDataFormViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewViewModel.swift; sourceTree = "<group>"; };
+		AFDDC45A297C15AD0088C137 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		AFDDC45C297C1F5A0088C137 /* TweetComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetComposeViewController.swift; sourceTree = "<group>"; };
+		AFDDC45E297C2A030088C137 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		AFDDC460297C2B310088C137 /* TweetComposeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetComposeViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,7 @@
 		AF200AE9296F1E9000A62BD7 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
+				AFDDC458297C156E0088C137 /* Utils */,
 				AF41A48D2973D08000E3284E /* Models */,
 				AF41A488297319E700E3284E /* Networking */,
 				AF41A4852972FD0400E3284E /* ViewModels */,
@@ -165,6 +174,7 @@
 			children = (
 				AF41A4672971498D00E3284E /* ProfileViewController.swift */,
 				AF41A49429740B9500E3284E /* ProfileDataFormViewController.swift */,
+				AFDDC45C297C1F5A0088C137 /* TweetComposeViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -186,6 +196,7 @@
 				AF41A492297401B800E3284E /*  HomeViewViewModel.swift */,
 				AF41A49629740DC700E3284E /* ProfileDataFormViewViewModel.swift */,
 				AF0BACF72975619900399ADB /* ProfileViewViewModel.swift */,
+				AFDDC460297C2B310088C137 /* TweetComposeViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -204,8 +215,25 @@
 			isa = PBXGroup;
 			children = (
 				AF41A48E2973D0C200E3284E /* TwitterUser.swift */,
+				AFDDC45E297C2A030088C137 /* Tweet.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AFDDC458297C156E0088C137 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AFDDC459297C15850088C137 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AFDDC459297C15850088C137 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AFDDC45A297C15AD0088C137 /* Extension+UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +325,7 @@
 			files = (
 				AF41A45E2970218700E3284E /* SearchViewController.swift in Sources */,
 				AF41A48A29731A0700E3284E /* AuthManager.swift in Sources */,
+				AFDDC45D297C1F5A0088C137 /* TweetComposeViewController.swift in Sources */,
 				AF41A4912973D1DC00E3284E /*  DatabaseManager.swift in Sources */,
 				AF0BACF62975584700399ADB /* StorageManager.swift in Sources */,
 				AF200AEF296F1E9000A62BD7 /* MainTabbarViewController.swift in Sources */,
@@ -305,10 +334,13 @@
 				AF0BACF82975619900399ADB /* ProfileViewViewModel.swift in Sources */,
 				AF41A4842972E68E00E3284E /* RegisterViewController.swift in Sources */,
 				AF41A493297401B800E3284E /*  HomeViewViewModel.swift in Sources */,
+				AFDDC45F297C2A030088C137 /* Tweet.swift in Sources */,
 				AF41A460297021A100E3284E /* NotificationsViewController.swift in Sources */,
 				AF200AED296F1E9000A62BD7 /* SceneDelegate.swift in Sources */,
+				AFDDC461297C2B310088C137 /* TweetComposeViewViewModel.swift in Sources */,
 				AF41A45C2970217300E3284E /* HomeViewController.swift in Sources */,
 				AF41A49729740DC700E3284E /* ProfileDataFormViewViewModel.swift in Sources */,
+				AFDDC45B297C15AD0088C137 /* Extension+UIColor.swift in Sources */,
 				AF41A4872972FD2900E3284E /* AuthenticationViewViewModel.swift in Sources */,
 				AF41A4682971498D00E3284E /* ProfileViewController.swift in Sources */,
 				AF41A462297021B700E3284E /* DirectMessagesViewController.swift in Sources */,
