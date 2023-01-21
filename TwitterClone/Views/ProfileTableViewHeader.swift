@@ -112,7 +112,6 @@ class ProfileTableViewHeader: UIView {
        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Joined Jan 2023"
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
@@ -151,14 +150,13 @@ class ProfileTableViewHeader: UIView {
     }()
   
     
-    private let profileAvatarImageView: UIImageView = {
+    var profileAvatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 40
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "person")
-        imageView.backgroundColor = .yellow
         return imageView
     }()
     
